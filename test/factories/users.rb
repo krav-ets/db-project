@@ -3,9 +3,9 @@ FactoryBot.define do
     first_name
     last_name
     password
-    email { "MyString" }
-    avatar { "MyString" }
-    type { "" }
+    email
+    avatar
+    type
 
     factory :developer do
       type { "Developer" }
