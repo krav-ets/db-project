@@ -11,8 +11,7 @@ FactoryBot.define do
     "//example.com/user#{n}.jpg"
   end
 
-  sequence :type, %i[Admin Developer Manager].cycle
+  sequence :type, [:Admin, :Developer, :Manager].cycle
 
-  sequence :state, %i[new_task in_development in_qa in_code_review ready_for_release released archived].cycle
-
+  sequence :state, [:new_task, :in_development, :in_qa, :in_code_review, :ready_for_release, :released, :archived].cycle
 end
