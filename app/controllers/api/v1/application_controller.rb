@@ -1,4 +1,8 @@
 class Api::V1::ApplicationController < Api::ApplicationController
+  def self.responder
+    JsonResponder
+  end
+
   RANSACK_DEFAULT_SORT = 'id ASC'
 
   def build_meta(collection)
