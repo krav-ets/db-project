@@ -8,7 +8,7 @@ class Task < ApplicationRecord
   validates :description, length: { maximum: 500 }
 
   def self.ransackable_attributes(_auth_object = nil)
-    ['assignee_id', 'author_id', 'created_at', 'description', 'expired_at', 'id', 'name', 'state', 'updated_at']
+    column_names + _ransackers.keys
   end
 
   state_machine initial: :new_task do
