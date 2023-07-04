@@ -11,6 +11,7 @@ import TasksRepository from 'repositories/TasksRepository';
 import AddPopup from 'components/AddPopup';
 import EditPopup from 'components/EditPopup';
 import TaskForm from 'forms/TaskForm';
+import TaskPresenter from 'presenters/TaskPresenter';
 
 import useStyles from './useStyles';
 
@@ -99,7 +100,7 @@ function TaskBoard() {
       return null;
     }
 
-    return TasksRepository.update(task.id, { stateEvent: transition.event })
+    return TasksRepository.update(TaskPresenter.id(task), { stateEvent: transition.event })
       .then(() => {
         loadColumnInitial(destination.toColumnId);
         loadColumnInitial(source.fromColumnId);
@@ -114,7 +115,7 @@ function TaskBoard() {
   };
 
   const handleEditPopupOpen = (task) => {
-    setOpenedTaskId(task.id);
+    setOpenedTaskId(TaskPresenter.id(task));
     setMode(MODES.EDIT);
   };
 
@@ -127,7 +128,7 @@ function TaskBoard() {
     const attributes = TaskForm.attributesToSubmit(params);
     return TasksRepository.create(attributes)
       .then(({ data: { task } }) => {
-        loadColumn(task.state);
+        loadColumn(TaskPresenter.state(task));
         handleClose();
       })
       .catch((error) => {
@@ -140,15 +141,15 @@ function TaskBoard() {
   const handleTaskUpdate = (task) => {
     const attributes = TaskForm.attributesToSubmit(task);
 
-    return TasksRepository.update(task.id, attributes).then(() => {
-      loadColumnInitial(task.state);
+    return TasksRepository.update(TaskPresenter.id(task), attributes).then(() => {
+      loadColumnInitial(TaskPresenter.state(task));
       handleClose();
     });
   };
 
   const handleTaskDestroy = (task) =>
-    TasksRepository.destroy(task.id).then(() => {
-      loadColumnInitial(task.state);
+    TasksRepository.destroy(TaskPresenter.id(task)).then(() => {
+      loadColumnInitial(TaskPresenter.state(task));
       handleClose();
     });
 
