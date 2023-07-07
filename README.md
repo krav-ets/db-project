@@ -1,3 +1,6 @@
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fkrav-ets%2Fdb-project%2Fbadge%3Fref%3Ddevelop&style=flat)](https://actions-badge.atrox.dev/krav-ets/db-project/goto?ref=develop)
+
+
 # README
 
 This README would normally document whatever steps are necessary to get the
