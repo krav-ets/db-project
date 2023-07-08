@@ -1,6 +1,9 @@
-if ENV['CI'] == true
+if ENV['CI'] == 'test'
   require 'simplecov'
   SimpleCov.start 'rails'
+
+  require 'coveralls_reborn'
+  Coveralls.wear!('rails')
 end
 
 ENV['RAILS_ENV'] ||= 'test'
