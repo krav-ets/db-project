@@ -1,4 +1,4 @@
-if ENV['CI'] == 'test'
+if ENV['CI']
   require 'simplecov'
   SimpleCov.start 'rails'
 
