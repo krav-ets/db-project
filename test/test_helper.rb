@@ -2,7 +2,7 @@ if ENV['CI']
   require 'simplecov'
   SimpleCov.start 'rails'
 
-  require 'coveralls_reborn'
+  require 'coveralls'
   Coveralls.wear!('rails')
 end
 
