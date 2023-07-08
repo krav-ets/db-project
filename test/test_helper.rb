@@ -4,8 +4,6 @@ if ENV['CI']
 
   require 'coveralls'
   Coveralls.wear!('rails')
-
-  puts ENV['COVERALLS_REPO_TOKEN']
 end
 
 ENV['RAILS_ENV'] ||= 'test'
