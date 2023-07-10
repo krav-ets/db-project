@@ -76,4 +76,10 @@ Rails.application.configure do
 
   config.hosts << '.app.uffizzi.com'
   config.hosts << 'taskmgr.fly.dev'
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.bullet_logger = true
+    # Bullet.rollbar = true
+  end
 end
