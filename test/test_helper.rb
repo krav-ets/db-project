@@ -1,6 +1,6 @@
 if ENV['CI']
   require 'simplecov'
-  SimpleCov.start 'rails'
+  SimpleCov.start('rails')
 
   require 'coveralls'
   Coveralls.wear!('rails')
